@@ -15,17 +15,25 @@ import sightseeing from "../public/sightseeing.jpeg";
 import personaltraining from "../public/personaltraining.jpg";
 import wildcamping from "../public/wildcamping.jpg";
 import slavonija from "../public/slavonija.jpg";
+import sailing from "../public/sailing.jpeg";
+
+import { useState } from "react";
 
 const Home = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div>
-      <main className="bg-white px-10 md:px-20 lg:px-40">
+    <div className={darkMode ? "dark" : ""}>
+      <main className="bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900">
         <section className="min-h-screen">
           <nav className="py-10 mb-12 flex justify-between">
             <h1 className="text-3xl font-burtons">Bablok's Adventures</h1>
             <ul className="flex items-center">
               <li>
-                <BsFillMoonStarsFill className="cursor-pointer text-xl" />
+                <BsFillMoonStarsFill
+                  onClick={() => setDarkMode(!darkMode)}
+                  className="cursor-pointer text-xl"
+                />
               </li>
               <li>
                 <a
@@ -49,12 +57,12 @@ const Home = () => {
               behavioral aspects of physical activity.
             </p>
           </div>
-          <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600">
+          <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 ">
             <AiFillLinkedin />
             <AiFillTwitterCircle />
             <AiFillYoutube />
           </div>
-          <div className="relative rounded-full w-80 h-80 mt-20 mx-auto overflow-hidden">
+          <div className="relative rounded-full w-80 h-80 mt-20 mb-10 mx-auto overflow-hidden md:h-96 md:w-96 ">
             <Image src={bea} alt="avatar" objectFit="cover" layout="fill" />
           </div>
         </section>
@@ -75,18 +83,18 @@ const Home = () => {
               to come to your place or you can come to my gym
             </p>
           </div>
-          <div>
+          <div className="lg:flex gap-10 ">
             <div className="text-center shadow-lg p-10 rounded-xl my-10">
               <Image
                 src={training}
-                width={300}
-                height={100}
+                width={400}
+                height={200}
                 objectFit="cover"
               />
               <h3 className="text-lg font-medium pt-8 pb-2">
                 Personal trainings
               </h3>
-              <p className="py-2">
+              <p className="py-2 max-w-lg">
                 Working towards your body goals and building your dream phisique
                 solo or in pair.
               </p>
@@ -98,14 +106,14 @@ const Home = () => {
             <div className="text-center shadow-lg p-10 rounded-xl my-10">
               <Image
                 src={volleyball}
-                width={300}
-                height={100}
+                width={400}
+                height={200}
                 objectFit="cover"
               />
               <h3 className="text-lg font-medium pt-8 pb-2">
                 Profesional and amateur beach volleyball
               </h3>
-              <p className="py-2">
+              <p className="py-2 max-w-lg">
                 Wanting to compete in beach volley by my side? Want to sponsor
                 my personal career or just try to track my results and look some
                 of my games? All can be negotiated by calling my phone number or
@@ -114,7 +122,7 @@ const Home = () => {
               <h4 className="py-4 text-teal-600">
                 My socials can be found on facebook, instagram and youtube
               </h4>
-              <p className="text-gray-800 py-1">Facebook: Domagoj Babok</p>
+              <p className="text-gray-800 py-1">Facebook: Domagoj Babok </p>
               <p className="text-gray-800 py-1">Instagram: @domagoj_babok </p>
               <p className="text-gray-800 py-1">Youtube: Bablok </p>
               <p className="text-gray-800 py-1">
@@ -122,16 +130,16 @@ const Home = () => {
               </p>
             </div>
             <div className="text-center shadow-lg p-10 rounded-xl my-10">
-              <Image src={party} width={300} height={100} objectFit="cover" />
+              <Image src={party} width={400} height={200} objectFit="cover" />
               <h3 className="text-lg font-medium pt-8 pb-2">My free time</h3>
-              <p className="py-2">
+              <p className="py-2 max-w-lg">
                 While learning and trying to be the best version of myself, I
                 like to entertain myself with spending time with friends,
                 playing board games, watching some football matches, training
                 and bunch of other stuff that young people do.
               </p>
               <h4 className="py-4 text-teal-600">Throwbacks on last summer</h4>
-              <p className="text-gray-800 py-1">Istria, sleeping in tents</p>
+              <p className="text-gray-800 py-1">Istria, sleeping in tents </p>
               <p className="text-gray-800 py-1">
                 Zadar and St.Filip and Jakov, sightseeing{" "}
               </p>
@@ -150,21 +158,60 @@ const Home = () => {
               experiencing new things every single day
             </p>
           </div>
-          <div>
-            <div>
-              <Image src={wildcamping} />
+          <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
+            <div className="basis-1/3 flex-1">
+              <Image
+                src={wildcamping}
+                className="rounded-lg object-cover"
+                width={"100%"}
+                height={"100%"}
+                layout="responsive"
+              />
             </div>
-            <div>
-              <Image src={sightseeing} />
+            <div className="basis-1/3 flex-1">
+              <Image
+                src={sightseeing}
+                className="rounded-lg object-cover"
+                width={"100%"}
+                height={"100%"}
+                layout="responsive"
+              />
             </div>
-            <div>
-              <Image src={badminton} />
+            <div className="basis-1/3 flex-1">
+              <Image
+                src={badminton}
+                className="rounded-lg object-cover"
+                width={"100%"}
+                height={"100%"}
+                layout="responsive"
+              />
             </div>
-            <div>
-              <Image src={personaltraining} />
+            <div className="basis-1/3 flex-1">
+              <Image
+                src={personaltraining}
+                className="rounded-lg object-cover"
+                width={"100%"}
+                height={"100%"}
+                layout="responsive"
+              />
             </div>
-            <div>
-              <Image src={slavonija} />
+            <div className="basis-1/3 flex-1">
+              <Image
+                src={slavonija}
+                className="rounded-lg object-cover"
+                width={"100%"}
+                height={"100%"}
+                layout="responsive"
+              />
+            </div>
+            <div className="basis-1/3 flex-1">
+              <Image
+                src={sailing}
+                className="rounded-lg object-cover"
+                width={"100%"}
+                height={"100%"}
+                layout="responsive"
+              />
             </div>
           </div>
         </section>
